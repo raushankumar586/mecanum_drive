@@ -1,0 +1,203 @@
+<?xml version="1.0" ?>
+<robot name="activeroboticx_mecanum" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find activeroboticx_mecanum)/urdf/materials.xacro" />
+<xacro:include filename="$(find activeroboticx_mecanum)/urdf/activeroboticx_mecanum.trans" />
+<xacro:include filename="$(find activeroboticx_mecanum)/urdf/activeroboticx_mecanum.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.002067261604428623 -9.778246955711723e-06 0.250496264751393"/>
+    <mass value="8.09906607499397"/>
+    <inertia ixx="4.716901" ixy="-9.4e-05" ixz="-0.047269" iyy="6.297014" iyz="9.3e-05" izz="4.46011"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fr">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.9652387883188913e-05 0.01645244231972756 -1.3155933793251862e-05"/>
+    <mass value="1.028659645614542"/>
+    <inertia ixx="0.013151" ixy="-5e-06" ixz="5e-06" iyy="0.019751" iyz="2e-06" izz="0.013159"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.2025 0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_fr.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.2025 0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_fr.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fl">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.9645434971137252e-05 -0.01645368864755406 -1.299080277231135e-05"/>
+    <mass value="1.028645157582681"/>
+    <inertia ixx="0.013151" ixy="5e-06" ixz="5e-06" iyy="0.019751" iyz="-2e-06" izz="0.013159"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.2025 -0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_fl.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.2025 -0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_fl.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_br">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.7943556098891653e-05 0.01645350428185552 -1.3156281121126656e-05"/>
+    <mass value="1.028274501056833"/>
+    <inertia ixx="0.01315" ixy="5e-06" ixz="-5e-06" iyy="0.01975" iyz="2e-06" izz="0.013158"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.2025 0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_br.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.2025 0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_br.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_bl">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.7965054648998455e-05 -0.016452209098566956 -1.2980013533989143e-05"/>
+    <mass value="1.0928286344150415"/>
+    <inertia ixx="0.01315" ixy="-5e-06" ixz="-5e-06" iyy="0.01975" iyz="-2e-06" izz="0.013158"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.2025 -0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_bl.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.2025 -0.1695 -0.09"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/wheel_bl.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_right">
+  <inertial>
+    <origin rpy="0 0 0" xyz="4.210194106515371e-05 -0.0008159080526261853 -0.019935922055739658"/>
+    <mass value="0.231047091009913"/>
+    <inertia ixx="0.001576" ixy="0.0" ixz="0.0" iyy="0.001574" iyz="-1e-06" izz="0.002614"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="4.2e-05 0.15767 -0.221"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/lidar_right.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="4.2e-05 0.15767 -0.221"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/lidar_right.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_left">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-4.21020474641944e-05 0.0008159077486483424 -0.01993592205573974"/>
+    <mass value="0.2310470910099243"/>
+    <inertia ixx="0.001576" ixy="0.0" ixz="-0.0" iyy="0.001574" iyz="1e-06" izz="0.002614"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-4.2e-05 -0.15767 -0.221"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/lidar_left.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-4.2e-05 -0.15767 -0.221"/>
+    <geometry>
+      <mesh filename="package://activeroboticx_mecanum/meshes/lidar_left.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="motor_fr" type="continuous">
+  <origin rpy="0 0 0" xyz="0.2025 -0.1695 0.09"/>
+  <parent link="base_link"/>
+  <child link="wheel_fr"/>
+  <axis xyz="0.0 0.01 0.0"/>
+  <limit effort="100" velocity="100"/>
+  <joint_properties damping="0.0" friction="0.0"/>
+</joint>
+
+<joint name="motor_fl" type="continuous">
+  <origin rpy="0 0 0" xyz="0.2025 0.1695 0.09"/>
+  <parent link="base_link"/>
+  <child link="wheel_fl"/>
+  <axis xyz="0.0 0.01 0.0"/>
+  <limit effort="100" velocity="100"/>
+  <joint_properties damping="0.0" friction="0.0"/>
+</joint>
+
+<joint name="motor_br" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.2025 -0.1695 0.09"/>
+  <parent link="base_link"/>
+  <child link="wheel_br"/>
+  <axis xyz="0.0 0.01 0.0"/>
+  <limit effort="100" velocity="100"/>
+  <joint_properties damping="0.0" friction="0.0"/>
+</joint>
+
+<joint name="motor_bl" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.2025 0.1695 0.09"/>
+  <parent link="base_link"/>
+  <child link="wheel_bl"/>
+  <axis xyz="0.0 0.01 0.0"/>
+  <limit effort="100" velocity="100"/>
+  <joint_properties damping="0.0" friction="0.0"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="-4.2e-05 -0.15767 0.221"/>
+  <parent link="base_link"/>
+  <child link="lidar_right"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="4.2e-05 0.15767 0.221"/>
+  <parent link="base_link"/>
+  <child link="lidar_left"/>
+</joint>
+
+</robot>

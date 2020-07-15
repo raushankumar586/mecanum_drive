@@ -1,0 +1,40 @@
+<launch>
+        <node pkg="ira_laser_tools" name="range_filter1" type="laserscan_multi_merger" output="screen">
+                <param name="scan_destination_topic" value="/right_scan" />
+                <param name="destination_frame" value="lidar_right" />
+                <param name="laserscan_topics" value="/robot/laser/rightscan" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
+                <param name="angle_min" value="-3.14" />
+                <param name="angle_max" value="0.0" />
+                <!-- <param name="angle_increment" value="0.0058"/> -->
+                <param name="scan_time" value="0.0333333" />
+                <param name="range_min" value="0.30" />
+                <param name="range_max" value="10.0" />
+        </node>
+
+        <node pkg="ira_laser_tools" name="range_filter2" type="laserscan_multi_merger" output="screen">
+                <param name="scan_destination_topic" value="/left_scan" />
+                <param name="destination_frame" value="lidar_left" />
+                <param name="laserscan_topics" value="/robot/laser/leftscan" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
+                <param name="angle_min" value="0.0" />
+                <param name="angle_max" value="3.14" />
+                <!-- <param name="angle_increment" value="0.0058"/> -->
+                <param name="scan_time" value="0.0333333" />
+                <param name="range_min" value="0.30" />
+                <param name="range_max" value="10.0" />
+        </node>
+
+
+        <node name="delay" pkg="ira_laser_tools" type="sleep.sh"/>
+
+        <node pkg="ira_laser_tools" name="merge_after_filter" type="laserscan_multi_merger" output="screen">
+                <param name="scan_destination_topic" value="/scan" />
+                <param name="destination_frame" value="base_link" />
+                <param name="laserscan_topics" value="/left_scan /right_scan" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
+                <param name="angle_min" value="-3.14" />
+                <param name="angle_max" value="3.14" />
+                <!-- <param name="angle_increment" value="0.0058"/> -->
+                <param name="scan_time" value="0.0333333" />
+                <param name="range_min" value="0.30" />
+                <param name="range_max" value="10.0" />
+        </node>
+</launch>
